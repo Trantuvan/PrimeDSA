@@ -83,4 +83,20 @@ public class MyQueueTest
         Assert.That(actual5, Is.EqualTo(expected5));
         Assert.That(actualLength, Is.EqualTo(expectedLength));
     }
+
+    [Test]
+    public void ShouldPeek()
+    {
+        //* Arrange
+        list.Enqueue(5);
+        list.Enqueue(7);
+        list.Enqueue(9);
+
+        //* Act
+        var actual = list.Peek();
+        var expected = 5;
+
+        //* Assert
+        Assert.That(actual, Is.EqualTo(expected));
+    }
 }
