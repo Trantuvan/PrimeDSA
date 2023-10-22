@@ -1,4 +1,4 @@
-﻿using PrimeDSA.Stack;
+﻿using PrimeDSA.MazeSolver;
 
 namespace PrimeDSA;
 
@@ -6,20 +6,22 @@ public class Program
 {
     public static void Main()
     {
-        MyStack<int> list = new();
-        list.Push(1);
-        list.Push(2);
-        list.Push(3);
+        string[] maze = {
+            "xxxxxxxxxx x",
+            "x        x x",
+            "x        x x",
+            "x xxxxxxxx x",
+            "x          x",
+            "x xxxxxxxxxx",
+        };
 
-        Console.WriteLine($"list length: {list.Length}");
-        Console.WriteLine(list.Pop());
+        MyMazeSolver solver = new(maze, "x", new Point(10, 0), new Point(1, 5));
 
-        Console.WriteLine($"list length: {list.Length}");
-        list.Push(11);
-        Console.WriteLine(list.Pop());
-        Console.WriteLine(list.Pop());
-        Console.WriteLine(list.Pop());
-        Console.WriteLine(list.Pop());
-        Console.WriteLine($"list length: {list.Length}");
+        List<Point> points = solver.Solve();
+
+        for (int i = 0; i < points.Count; i++)
+        {
+            Console.WriteLine($"index {i}: x {points[i].X} y {points[i].Y}");
+        }
     }
 }
