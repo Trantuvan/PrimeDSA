@@ -1,4 +1,4 @@
-﻿using PrimeDSA.MazeSolver;
+﻿using PrimeDSA.QuickSort;
 
 namespace PrimeDSA;
 
@@ -6,22 +6,12 @@ public class Program
 {
     public static void Main()
     {
-        string[] maze = {
-            "xxxxxxxxxx x",
-            "x        x x",
-            "x        x x",
-            "x xxxxxxxx x",
-            "x          x",
-            "x xxxxxxxxxx",
-        };
+        int[] numbers = { 9, 3, 7, 4, 69, 420, 42 };
 
-        MyMazeSolver solver = new(maze, "x", new Point(10, 0), new Point(1, 5));
+        MyQuickSort quickSort = new(numbers);
+        var sortedArr = quickSort.Sort();
+        var sortedStr = string.Join(", ", sortedArr);
 
-        List<Point> points = solver.Solve();
-
-        for (int i = 0; i < points.Count; i++)
-        {
-            Console.WriteLine($"index {i}: x {points[i].X} y {points[i].Y}");
-        }
+        Console.WriteLine($"sorted array: {sortedStr}");
     }
 }
