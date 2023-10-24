@@ -1,4 +1,4 @@
-﻿using PrimeDSA.QuickSort;
+﻿using PrimeDSA.MergeSort;
 
 namespace PrimeDSA;
 
@@ -8,8 +8,8 @@ public class Program
     {
         int[] numbers = { 9, 3, 7, 4, 69, 420, 42 };
 
-        MyQuickSort quickSort = new(numbers);
-        var sortedArr = quickSort.Sort();
+        MyMergeSort mergeSort = new();
+        var sortedArr = mergeSort.Sort(numbers);
         var sortedStr = string.Join(", ", sortedArr);
 
         Console.WriteLine($"sorted array: {sortedStr}");
