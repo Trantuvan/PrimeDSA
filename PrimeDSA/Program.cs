@@ -1,4 +1,4 @@
-﻿using PrimeDSA.MergeSort;
+﻿using PrimeDSA.DoublyLinkedList;
 
 namespace PrimeDSA;
 
@@ -6,12 +6,15 @@ public class Program
 {
     public static void Main()
     {
-        int[] numbers = { 9, 3, 7, 4, 69, 420, 42 };
-
-        MyMergeSort mergeSort = new();
-        var sortedArr = mergeSort.Sort(numbers);
-        var sortedStr = string.Join(", ", sortedArr);
-
-        Console.WriteLine($"sorted array: {sortedStr}");
+        MyDoubleLinkedList<int> list = new();
+        list.Append(5);
+        list.Append(9);
+        list.Append(7);
+        list.InsertAt(10, 5);
+        Console.WriteLine($"remove {list.RemoveAt(0)}");
+        for (var i = 0; i < list.Length; i++)
+        {
+            Console.WriteLine($"index: {i} value: {list.Get(i)}");
+        }
     }
 }
